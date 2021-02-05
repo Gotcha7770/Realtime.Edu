@@ -1,0 +1,13 @@
+﻿# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/modules.xml
+/projectSettingsUpdater.xml
+/.idea.Realtime.Edu.iml
+/contentModel.xml
+# Datasource local storage ignored files
+/../../../../../../../../:\Users\Gotcha\Dev\Realtime.Edu\.idea\.idea.Realtime.Edu\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/

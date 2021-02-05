@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0-windows</TargetFramework>
+        <UseWPF>true</UseWPF>
+        <RootNamespace>Realtime.Edu.Core</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="Interfaces" />
+    </ItemGroup>
+
+</Project>
