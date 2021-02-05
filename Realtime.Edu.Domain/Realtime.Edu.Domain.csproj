@@ -10,4 +10,9 @@
       <Folder Include="Interfaces" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="LiteDB.Realtime" Version="1.1.0" />
+      <PackageReference Include="ReactiveUI" Version="13.1.1" />
+    </ItemGroup>
+
 </Project>

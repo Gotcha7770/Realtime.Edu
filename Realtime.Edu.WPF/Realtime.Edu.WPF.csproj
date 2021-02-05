@@ -8,7 +8,13 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="LiteDB.Realtime" Version="1.1.0" />
       <PackageReference Include="ReactiveUI.WPF" Version="13.1.1" />
+      <PackageReference Include="Splat.Autofac" Version="10.0.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Realtime.Edu.Domain\Realtime.Edu.Domain.csproj" />
     </ItemGroup>
 
 </Project>
