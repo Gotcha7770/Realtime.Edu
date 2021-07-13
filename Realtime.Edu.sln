@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Realtime.Edu.WPF", "Realtim
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Realtime.Edu.Domain", "Realtime.Edu.Domain\Realtime.Edu.Domain.csproj", "{5FB89399-9D72-447B-8150-8C4F54623C1A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Realtime.Edu.Tests", "Realtime.Edu.Tests\Realtime.Edu.Tests.csproj", "{F24E84E7-EEC6-47CB-AC54-274FF22F34B1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{5FB89399-9D72-447B-8150-8C4F54623C1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5FB89399-9D72-447B-8150-8C4F54623C1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5FB89399-9D72-447B-8150-8C4F54623C1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F24E84E7-EEC6-47CB-AC54-274FF22F34B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F24E84E7-EEC6-47CB-AC54-274FF22F34B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F24E84E7-EEC6-47CB-AC54-274FF22F34B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F24E84E7-EEC6-47CB-AC54-274FF22F34B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
