@@ -13,48 +13,60 @@ namespace Realtime.Edu.Tests
     [TestFixture]
     public class DBTest
     {
-        [OneTimeSetUp]
-        public void OneTimeSetUp()
+        [Test]
+        public void SettingsSerialization()
         {
-            // BsonMapper.Global.RegisterType(x => new BsonDocument
-            //     {
-            //         ["_id"] = x.Key,
-            //         ["Entities"] = x.Entities.ToBsonArray()
-            //     },
-            //     x => new Settings(x["_id"],
-            //         x["Entities"].AsArray.Select(i => BsonMapper.Global.Deserialize<Property>(i))));
-            
-            // BsonMapper.Global.Entity<Settings>()
-            //     .Ctor(x =>
-            //     {
-            //         var result = new Settings();
-            //         //x.ForEach();
-            //         return result;
-            //     });
-            //.DbRef(x => x.Trajectories, "trajectories");
+            // var property = new Property {Value = "Test"};
+            // var settings = new Settings(Guid.NewGuid());
+            // settings.Add(property);
+            //
+            // var document = BsonMapper.Global.ToDocument(settings);
+            // var obj = BsonMapper.Global.ToObject<Settings>(document);
         }
 
         [Test]
-        public void Serialization()
+        public void METHOD()
         {
-            var property = new Property {Value = "Test"};
-            var settings = new Settings(Guid.NewGuid());
-            settings.Add(property);
+            using (var db = new LiteDatabase(new MemoryStream()))
+            {
+                var property = new Property {Value = "Test"};
+                var settings = new Settings(Guid.NewGuid());
+                settings.Add(Guid.NewGuid(), property);
+                var s = db.GetCollection<Settings>("settings");
+                s.Insert(settings);
+
+                var document = db.GetCollection("settings").FindById(settings.Key);
+
+                document["Entities"][Guid.NewGuid().ToString()] = new BsonDocument()
+                {
+                    ["Value"] = "Test1"
+                };
+                
+                db.GetCollection("settings").Update(document);
+
+                var restored = s.FindById(settings.Key);
+            }
+        }
+
+        [Test]
+        public void TrajectorySerialization()
+        {
+            var traj = new Trajectory(Guid.NewGuid(), "1");
             
+            var document = BsonMapper.Global.ToDocument(traj);
+            var obj = BsonMapper.Global.ToObject<Trajectory>(document);
+        }
+
+        [Test]
+        public void WellSerialization()
+        {
             var well = new Well(Guid.NewGuid(), "Main");
             well.Add(new Trajectory(Guid.NewGuid(), "1"));
             well.Add(new Trajectory(Guid.NewGuid(), "2"));
             well.Add(new Trajectory(Guid.NewGuid(), "3"));
-
-            var document = BsonMapper.Global.ToDocument(property);
-            object obj = BsonMapper.Global.ToObject<Property>(document);
             
-            document = BsonMapper.Global.ToDocument(settings);
-            var bson = BsonMapper.Global.Serialize(settings);
-            obj = BsonMapper.Global.ToObject<Settings>(document);
-            
-            document = BsonMapper.Global.ToDocument(well);
-            obj = BsonMapper.Global.ToObject<Well>(document);
+            var document = BsonMapper.Global.ToDocument(well);
+            var obj = BsonMapper.Global.ToObject<Well>(document);
         }
 
         [Test]
